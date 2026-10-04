@@ -1,0 +1,199 @@
+.what-we-do-section {
+  padding: clamp(4rem, 8vw, 7.5rem) 0;
+  background-color: var(--bg-cream);
+  border-bottom: 1px solid var(--border-warm);
+}
+
+.section-header {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: clamp(2.8rem, 5vw, 4.4rem);
+  line-height: 0.98;
+  color: var(--text-dark);
+  margin-top: 1.25rem;
+  max-width: 780px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-line {
+  font-family: 'Bebas Neue', sans-serif !important;
+  white-space: nowrap;
+}
+
+.disciplines-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* Service Card Container - Compact by default, expands on hover */
+.discipline-card {
+  position: relative;
+  background-color: var(--bg-cream-card);
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  border: 1px solid var(--border-warm);
+  overflow: hidden;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  cursor: pointer;
+  transition: border-color 0.4s var(--ease-out-expo), padding 0.4s var(--ease-out-expo);
+}
+
+/* Animated Maroon Fill Layer (Bottom-to-Top GSAP/CSS Transition) */
+.discipline-card-hover-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-burgundy);
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.discipline-card:hover {
+  padding-bottom: 2.2rem;
+}
+
+.discipline-card:hover .discipline-card-hover-fill {
+  transform: scaleY(1);
+}
+
+.discipline-card-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.discipline-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.discipline-title {
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  color: var(--text-dark);
+  transition: color 0.4s var(--ease-out-expo);
+}
+
+/* Number Chip in Hover State */
+.discipline-card:hover .number-chip {
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+}
+
+.discipline-card:hover .discipline-title {
+  color: var(--text-cream);
+}
+
+/* Hover Content (Hidden by default, slides up and reveals in White Text) */
+.discipline-hover-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(20px);
+  transition: max-height 0.5s var(--ease-out-expo), opacity 0.4s ease 0.1s, transform 0.4s var(--ease-out-expo) 0.1s;
+}
+
+.discipline-card:hover .discipline-hover-content {
+  max-height: 300px;
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 1.5rem;
+}
+
+.discipline-description {
+  font-size: clamp(0.92rem, 1.3vw, 1.02rem);
+  line-height: 1.6;
+  color: rgba(245, 243, 238, 0.9);
+  margin-bottom: 1.5rem;
+}
+
+.discipline-services {
+  border-top: 1px solid rgba(245, 243, 238, 0.25);
+  padding-top: 1.25rem;
+}
+
+.services-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--bg-cream);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.services-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.services-list li {
+  font-size: 0.88rem;
+  color: var(--text-cream);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.services-list li::before {
+  content: '—';
+  color: rgba(245, 243, 238, 0.6);
+}
+
+@media (max-width: 840px) {
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .section-title {
+    align-items: center;
+    text-align: center;
+  }
+
+  .title-line {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .disciplines-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .discipline-card {
+    align-items: center;
+    text-align: center;
+  }
+
+  .discipline-header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .discipline-hover-content {
+    text-align: center;
+  }
+
+  .services-list li {
+    justify-content: center;
+  }
+}

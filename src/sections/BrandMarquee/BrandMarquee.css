@@ -1,0 +1,125 @@
+.brand-marquee-section {
+  background-color: var(--bg-dark);
+  color: var(--text-cream);
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-dark);
+  overflow: hidden;
+}
+
+.marquee-split-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+}
+
+/* Fixed Left Label Section */
+.marquee-left-label {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  flex-shrink: 0;
+  z-index: 2;
+  background-color: var(--bg-dark);
+}
+
+.marquee-label-text {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  color: var(--text-muted-dark);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.marquee-vertical-divider {
+  width: 1px;
+  height: 24px;
+  background-color: var(--border-dark);
+}
+
+/* Right Sliding Marquee Track Wrapper */
+.marquee-track-wrapper {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  user-select: none;
+  position: relative;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+}
+
+/* Slowed animation duration (90s) for ultra-elegant, smooth, flicker-free movement */
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 2.8rem;
+  white-space: nowrap;
+  animation: marqueeScroll 90s linear infinite;
+  will-change: transform;
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 2.8rem;
+}
+
+.marquee-brand-name {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  letter-spacing: 0.08em;
+  color: rgba(245, 243, 238, 0.65);
+  transition: color var(--transition-fast);
+}
+
+.marquee-item:hover .marquee-brand-name {
+  color: var(--text-cream);
+}
+
+.marquee-dot {
+  color: var(--accent-burgundy-light);
+  font-size: 0.9rem;
+}
+
+/* Seamless infinite scroll keyframes */
+@keyframes marqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .marquee-split-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .marquee-left-label {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .marquee-label-text {
+    text-align: center;
+  }
+
+  .marquee-vertical-divider {
+    display: none;
+  }
+
+  .marquee-track-wrapper {
+    width: 100%;
+  }
+
+  .marquee-track {
+    animation-duration: 35s;
+  }
+}

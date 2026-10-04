@@ -1,0 +1,195 @@
+/* Design Tokens for Urban Marketing Enterprise LLC (UME) */
+:root {
+  /* Palette */
+  --bg-cream: #F5F3EE;
+  --bg-cream-card: #EFECE6;
+  --bg-dark: #0F0E0E;
+  --bg-dark-card: #181717;
+  
+  --text-dark: #111111;
+  --text-cream: #F5F3EE;
+  --text-muted: #73706A;
+  --text-muted-dark: #A3A09A;
+
+  --accent-burgundy: #6B1D2F;
+  --accent-burgundy-hover: #541624;
+  --accent-burgundy-light: #802339;
+
+  --border-warm: #E2DDD5;
+  --border-dark: #2A2826;
+
+  /* Fonts - STRICTLY Bebas Neue & Montserrat ONLY */
+  --font-heading: 'Bebas Neue', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+
+  /* Transitions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.25s var(--ease-out-expo);
+  --transition-normal: 0.4s var(--ease-out-expo);
+}
+
+/* Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-body);
+  font-weight: 400;
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Strict Typography Enforcement */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading) !important;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+
+p, span, li, a, button, input, textarea, label, div {
+  font-family: var(--font-body);
+}
+
+/* Utility Containers */
+.container {
+  width: 100%;
+  max-width: 1380px;
+  margin: 0 auto;
+  padding-left: clamp(2rem, 5vw, 4.5rem);
+  padding-right: clamp(2rem, 5vw, 4.5rem);
+}
+
+/* Chip Utilities */
+.eyebrow-chip {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(0.7rem, 1.2vw, 0.825rem);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.45em 0.9em;
+  background-color: var(--accent-burgundy);
+  color: var(--text-cream);
+  border-radius: 2px;
+  width: fit-content;
+}
+
+.eyebrow-chip.light {
+  background-color: rgba(245, 243, 238, 0.15);
+  color: var(--text-cream);
+  backdrop-filter: blur(4px);
+}
+
+.number-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--text-dark);
+  color: var(--bg-cream);
+  border-radius: 2px;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  background-color: var(--accent-burgundy);
+  color: var(--text-cream);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 1.1em 2.2em;
+  border: 1px solid var(--accent-burgundy);
+  border-radius: 2px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-burgundy-hover);
+  border-color: var(--accent-burgundy-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  background-color: transparent;
+  color: var(--text-dark);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 1.1em 2.2em;
+  border: 1px solid var(--text-dark);
+  border-radius: 2px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  background-color: var(--text-dark);
+  color: var(--bg-cream);
+  transform: translateY(-2px);
+}
+
+.btn-secondary.dark {
+  color: var(--text-cream);
+  border-color: rgba(245, 243, 238, 0.3);
+}
+
+.btn-secondary.dark:hover {
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  border-color: var(--bg-cream);
+}
+
+/* Arrow Icon Transition */
+.btn-icon-arrow {
+  transition: transform var(--transition-fast);
+}
+
+.btn-primary:hover .btn-icon-arrow,
+.btn-secondary:hover .btn-icon-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* Hide scrollbar globally while preserving smooth scrolling functionality */
+::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+  background: transparent;
+}
+
+html, body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

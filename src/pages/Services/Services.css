@@ -1,0 +1,34 @@
+.services-hero-section {
+  padding: clamp(4rem, 7vw, 6rem) 0;
+  background-color: var(--bg-dark);
+  color: var(--text-cream);
+}
+
+.services-hero-title {
+  font-size: clamp(3.5rem, 6.5vw, 5.5rem);
+  line-height: 0.95;
+  color: var(--text-cream);
+  margin-top: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.services-hero-lead {
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  line-height: 1.5;
+  color: var(--text-muted-dark);
+  max-width: 760px;
+}
+
+@media (max-width: 900px) {
+  .services-hero-section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .services-hero-title,
+  .services-hero-lead {
+    text-align: center;
+  }
+}

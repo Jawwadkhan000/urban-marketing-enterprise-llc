@@ -1,0 +1,202 @@
+.hero-section {
+  position: relative;
+  min-height: clamp(620px, 82vh, 880px);
+  background-color: var(--bg-cream);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-top: clamp(2.5rem, 4vw, 4rem);
+  padding-bottom: clamp(3rem, 5vw, 5rem);
+}
+
+/* Full-Height Immersive Right Visual Layer */
+.hero-bg-visual {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 48%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+  display: block;
+}
+
+/* Editorial blend mask creating seamless transition from left cream background into the urban image */
+.hero-bg-blend-mask {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--bg-cream) 0%, rgba(245, 243, 238, 0.45) 24%, rgba(245, 243, 238, 0) 50%),
+              linear-gradient(180deg, rgba(245, 243, 238, 0.25) 0%, rgba(245, 243, 238, 0) 15%, rgba(245, 243, 238, 0.3) 100%);
+  pointer-events: none;
+}
+
+/* Metric Card overlapping the lower hero visual layer */
+.footprint-card {
+  position: absolute;
+  bottom: clamp(1.5rem, 3.5vw, 3.5rem);
+  left: 2rem;
+  background-color: var(--bg-dark);
+  color: var(--text-cream);
+  padding: 1.25rem 1.6rem;
+  border-radius: 2px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  z-index: 10;
+  border-left: 3px solid var(--accent-burgundy-light);
+}
+
+.footprint-number {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(1.85rem, 3vw, 2.3rem);
+  line-height: 0.95;
+  color: var(--text-cream);
+}
+
+.footprint-label {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted-dark);
+  line-height: 1.35;
+}
+
+/* Foreground Editorial Content Container */
+.hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+}
+
+.hero-content {
+  width: 54%;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-eyebrow-wrap {
+  margin-bottom: 1.35rem;
+}
+
+/* STRICT FONT ENFORCEMENT: Bebas Neue for main heading */
+.hero-main-title {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: clamp(3.2rem, 5.4vw, 5.2rem);
+  line-height: 0.92;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.hero-title-line {
+  font-family: 'Bebas Neue', sans-serif !important;
+  white-space: nowrap;
+}
+
+.highlight-city {
+  color: var(--accent-burgundy);
+}
+
+.hero-subheadline {
+  font-size: clamp(1rem, 1.45vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--accent-burgundy);
+  margin-bottom: 1.15rem;
+  max-width: 520px;
+}
+
+.hero-description {
+  font-size: clamp(0.88rem, 1.15vw, 0.98rem);
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  max-width: 490px;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Mobile Responsive Layout - Image stays in absolute background with text overlay */
+@media (max-width: 1024px) {
+  .hero-section {
+    min-height: 85vh;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .hero-bg-visual {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+    opacity: 0.35;
+  }
+
+  .hero-bg-blend-mask {
+    background: linear-gradient(180deg, var(--bg-cream) 0%, rgba(245, 243, 238, 0.7) 40%, var(--bg-cream) 100%),
+                linear-gradient(90deg, var(--bg-cream) 0%, rgba(245, 243, 238, 0.5) 100%);
+  }
+
+  .hero-container {
+    justify-content: center;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    z-index: 5;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-subheadline,
+  .hero-description {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title-line {
+    white-space: normal;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .hero-cta-group .btn-primary,
+  .hero-cta-group .btn-secondary {
+    width: 100%;
+  }
+}

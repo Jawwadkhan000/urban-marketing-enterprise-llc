@@ -1,0 +1,92 @@
+.final-cta-section {
+  position: relative;
+  background-color: var(--accent-burgundy);
+  color: var(--text-cream);
+  padding: clamp(4.5rem, 9vw, 8rem) 0;
+  overflow: hidden;
+}
+
+/* Pseudo element for vignette grid mask layer focused on center and bottom-left */
+.final-cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+  z-index: 1;
+
+  /* Radial & Linear gradient mask fading grid softly into edges and top right */
+  mask-image: 
+    radial-gradient(circle at 15% 85%, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 35%, transparent 70%),
+    radial-gradient(circle at 50% 40%, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
+  mask-composite: add;
+  -webkit-mask-image: 
+    radial-gradient(circle at 15% 85%, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 35%, transparent 70%),
+    radial-gradient(circle at 50% 40%, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
+  -webkit-mask-composite: source-over;
+}
+
+.final-cta-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(2.5rem, 5vw, 5rem);
+}
+
+.final-cta-content {
+  max-width: 720px;
+}
+
+.final-cta-heading {
+  font-size: clamp(3rem, 6vw, 5.2rem);
+  line-height: 0.95;
+  color: var(--text-cream);
+  margin-bottom: 1.25rem;
+}
+
+.final-cta-copy {
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+  line-height: 1.6;
+  color: rgba(245, 243, 238, 0.85);
+}
+
+.final-cta-action {
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .final-cta-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  .final-cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .final-cta-heading,
+  .final-cta-copy {
+    text-align: center;
+  }
+
+  .final-cta-action {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .final-cta-action .btn-secondary {
+    width: 100%;
+    max-width: 340px;
+  }
+}

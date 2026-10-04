@@ -1,0 +1,127 @@
+.work-hero-section {
+  padding: clamp(4rem, 7vw, 6rem) 0;
+  background-color: var(--bg-dark);
+  color: var(--text-cream);
+}
+
+.work-hero-title {
+  font-size: clamp(3.5rem, 6.5vw, 5.5rem);
+  line-height: 0.95;
+  color: var(--text-cream);
+  margin-top: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.work-hero-lead {
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  line-height: 1.5;
+  color: var(--text-muted-dark);
+  max-width: 760px;
+}
+
+.case-breakdown-section {
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  background-color: var(--bg-cream-card);
+  border-bottom: 1px solid var(--border-warm);
+}
+
+.breakdown-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--text-dark);
+  margin-top: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.breakdowns-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.breakdown-item {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  background-color: var(--bg-cream);
+  padding: 2.5rem;
+  border: 1px solid var(--border-warm);
+  border-radius: 2px;
+}
+
+.breakdown-client {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.breakdown-campaign {
+  font-size: 2.2rem;
+  color: var(--text-dark);
+  margin: 0.5rem 0 1rem 0;
+}
+
+.breakdown-result-tag {
+  display: inline-block;
+  background-color: var(--accent-burgundy);
+  color: var(--text-cream);
+  padding: 0.5em 1em;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.85rem;
+  border-radius: 2px;
+}
+
+.breakdown-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.breakdown-block h4 {
+  font-family: var(--font-body) !important;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--accent-burgundy);
+  margin-bottom: 0.4rem;
+}
+
+.breakdown-block p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+@media (max-width: 840px) {
+  .work-hero-section .container,
+  .case-breakdown-section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .work-hero-title,
+  .work-hero-lead,
+  .breakdown-title {
+    text-align: center;
+  }
+
+  .breakdown-item {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  .breakdown-left,
+  .breakdown-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
